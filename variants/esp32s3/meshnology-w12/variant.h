@@ -47,4 +47,16 @@
 
 // ─── Not wired up yet ─────────────────────────────────────────────────────────
 // RGB LED on GPIO46 stays off: HAS_NEOPIXEL pulls in the RMT HAL, which fails to link here.
-// L76K GNSS header (RX=39, TX=38, CTRL=48 active low, WAKE=40, PPS=41, RST=42) is unpopulated.
+
+// ─── L76K GNSS header ─────────────────────────────────────────────────────────
+// Pins from the original comment: RX=39, TX=38, CTRL=48 (active low), WAKE=40, PPS=41, RST=42.
+// Untested guess: RX/TX direction may need swapping.
+#define HAS_GPS 1
+#define GPS_BAUDRATE 9600
+#define GPS_RX_PIN 39
+#define GPS_TX_PIN 38
+#define PIN_GPS_EN 48
+#define GPS_EN_ACTIVE LOW
+#define PIN_GPS_RESET 42
+#define GPS_RESET_MODE LOW
+#define PIN_GPS_PPS 41
